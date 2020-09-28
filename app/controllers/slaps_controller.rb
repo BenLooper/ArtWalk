@@ -1,0 +1,2 @@
+class SlapsController < ApplicationController
+end

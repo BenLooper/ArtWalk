@@ -1,0 +1,2 @@
+class Slap < ApplicationRecord
+end
