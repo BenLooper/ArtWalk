@@ -4,6 +4,7 @@
 <%= button_to "Logout", "/sessions", controller:'sessions', action:'destroy', method:'delete'%>
 <%elsif @user.backed_profile?(@profile)%>
 <h2 style="color:green">Backed</h2>
+<%= button_to "Forget this artist", forget_path, controller:"users",action:"forget",method:"post", id:@user.id%>
 <%else%>
 <%= button_to "Back this artist", back_path, controller:"users",action:"back",method:"post", id:@user.id%>
 <%end%>

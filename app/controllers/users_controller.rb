@@ -17,6 +17,12 @@ class UsersController < ApplicationController
         redirect_to user_path(params[:id])
     end 
 
+    def forget 
+        back = Back.find_by(backer_id:session[:id],backee_id:params[:id])
+        Back.destroy(back.id)
+        redirect_to user_path(params[:id])
+    end 
+
     def create 
         new_user = User.new(user_params)
 

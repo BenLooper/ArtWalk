@@ -9,6 +9,9 @@ Rails.application.routes.draw do\
   
   #follow someone
   post "/users/:id", to: "users#back", as: "back"
+
+  #unfollow someone
+  post "users/:id/forget", to: "users#forget", as: "forget"
   
   resources :comments
   resources :slaps
