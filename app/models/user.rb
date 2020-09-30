@@ -16,4 +16,9 @@ class User < ApplicationRecord
     def backee_posts
         self.backees.collect{|user| user.posts}.flatten
     end 
+
+    def backed_profile?(profile)
+        self.backees.include?(profile)
+    end 
+
 end

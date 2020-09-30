@@ -1,10 +1,21 @@
-<h1><%=@user.username%></h1>
+<h1><%=@profile.username%></h1>
+
+<%if @user == @profile %>
 <%= button_to "Logout", "/sessions", controller:'sessions', action:'destroy', method:'delete'%>
+<%elsif @user.backed_profile?(@profile)%>
+<h2 style="color:green">Backed</h2>
+<%else%>
+<%= button_to "Back this artist", back_path, controller:"users",action:"back",method:"post", id:@user.id%>
+<%end%>
+
 <br>
-<%@user.posts.each do |post|%>
+
+<%@profile.posts.each do |post|%>
 <label><strong><%=link_to post.user_name, user_path(post.user)%></strong></label>
 <p><img src='<%=post.image_url%>' alt="Random Image"></p>
 <p>Snaps:<%=" "+ post.snap_number%><%=" "%>Slaps:<%=" "+post.slap_number%></p>
 <p><%=post.description%></p>
+
 <br>
+
 <%end%>

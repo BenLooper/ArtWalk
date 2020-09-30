@@ -2,6 +2,7 @@ class UsersController < ApplicationController
     before_action :authenticated?, only: [:feed, :show, :activity]
 
     def show
+        @profile = User.find(params[:id])
     end 
 
     def feed 
@@ -9,6 +10,11 @@ class UsersController < ApplicationController
 
     def new 
         @user = User.new
+    end 
+
+    def back 
+        Back.find_or_create_by(backer_id:session[:id],backee_id:params[:id])
+        redirect_to user_path(params[:id])
     end 
 
     def create 
