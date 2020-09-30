@@ -6,12 +6,16 @@ class SessionsController < ApplicationController
 
   def create 
 
-    if !user_params[:username] || user_params[:username].empty? 
-      redirect_to sign_in_path
+    @user = User.find_by username:user_params[:username]
+    # byebug
+    if @user && @user.authenticate(user_params[:password]) 
+      session[:id] = @user.id
+      redirect_to posts_path
+
     else 
-      user = User.all.find_by username:user_params[:username]
-      session[:user] = user
-      redirect_to user_path(session[:user])
+      flash[:error] = "Incorrect username or password"
+      redirect_to sign_in_path
+
     end 
   end 
 
@@ -20,5 +24,5 @@ class SessionsController < ApplicationController
   end 
     
 end
-# Seurat
+# Cassatt
 # 3766787944

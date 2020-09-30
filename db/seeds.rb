@@ -8,10 +8,11 @@ Slap.destroy_all
 
 
 # Users 
+# 
 10.times do                                                    
   User.create(
     username:Faker::Artist.name,
-    password:Faker::Number.number,
+    password:Faker::Number.number.to_s,
     bio:Faker::Lorem.paragraph
   )
 end 

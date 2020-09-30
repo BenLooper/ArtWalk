@@ -4,4 +4,6 @@ class User < ApplicationRecord
     has_many :comments
     has_many :slaps 
     has_many :backs
+
+    has_secure_password
 end
