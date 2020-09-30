@@ -7,10 +7,10 @@ class SessionsController < ApplicationController
   def create 
 
     @user = User.find_by username:user_params[:username]
-    # byebug
+
     if @user && @user.authenticate(user_params[:password]) 
       session[:id] = @user.id
-      redirect_to posts_path
+      redirect_to root_path
 
     else 
       flash[:error] = "Incorrect username or password"
