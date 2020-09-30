@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get '/sign_in', to: "sessions#sign_in"
+  post '/sessions', to: "sessions#create"
+  delete '/sessions', to: "sessions#destroy"
+  
   resources :comments
   resources :slaps
   resources :snaps
