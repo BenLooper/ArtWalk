@@ -34,14 +34,9 @@ class UsersController < ApplicationController
         end 
     end 
 
-    def authenticated?
-        if session[:id] != nil
-            @user = User.find(session[:id])
-        else 
-            redirect_to sign_in_path
-        end 
-    end 
 
+    private 
+    
     def user_params 
         params.require(:user).permit(:username, :password, :password_confirmation)
     end 
