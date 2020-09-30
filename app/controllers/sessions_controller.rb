@@ -19,6 +19,11 @@ class SessionsController < ApplicationController
     end 
   end 
 
+  def destroy 
+    session.clear
+    redirect_to sign_in_path
+  end 
+  
   def user_params 
     params.require(:user).permit(:username, :password)
   end 
