@@ -6580,3 +6580,252 @@ Processing by ApplicationController#feed as HTML
 Completed 200 OK in 84ms (Views: 39.8ms | ActiveRecord: 1.5ms | Allocations: 20157)
 
 
+Started GET "/" for ::1 at 2020-09-30 12:08:24 -0500
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ApplicationController#feed as HTML
+  Rendering application/feed.html.erb within layouts/application
+  Rendered application/feed.html.erb within layouts/application (Duration: 0.8ms | Allocations: 240)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 59ms (Views: 54.4ms | ActiveRecord: 0.0ms | Allocations: 10434)
+
+
+Started GET "/feed" for ::1 at 2020-09-30 12:11:18 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/feed"):
+  
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/sign_in" for ::1 at 2020-09-30 12:11:36 -0500
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 264.0ms | Allocations: 198750)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 318ms (Views: 289.9ms | ActiveRecord: 0.6ms | Allocations: 216743)
+
+
+Started POST "/sessions" for ::1 at 2020-09-30 12:11:43 -0500
+Processing by SessionsController#create as JS
+  Parameters: {"authenticity_token"=>"XTaZEUumT/6WlBlNHf7u+V6VijKkTpX1rCBucyG+Gxa6jms6AjjdmBeD4cm4e8Io/VHUFgBN4M4fgep8cyXWPQ==", "user"=>{"username"=>"Karim", "password"=>"[FILTERED]"}, "commit"=>"sign in"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Karim"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9:in `create'
+Completed 500 Internal Server Error in 550ms (ActiveRecord: 0.8ms | Allocations: 102259)
+
+
+  
+NameError (undefined local variable or method `root_path' for #<SessionsController:0x00007fa91b1d0e18>
+Did you mean?  post_path):
+  
+app/controllers/sessions_controller.rb:13:in `create'
+Started POST "/sessions" for ::1 at 2020-09-30 12:11:53 -0500
+Processing by SessionsController#create as JS
+  Parameters: {"authenticity_token"=>"XTaZEUumT/6WlBlNHf7u+V6VijKkTpX1rCBucyG+Gxa6jms6AjjdmBeD4cm4e8Io/VHUFgBN4M4fgep8cyXWPQ==", "user"=>{"username"=>"Karim", "password"=>"[FILTERED]"}, "commit"=>"sign in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Karim"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9:in `create'
+Completed 500 Internal Server Error in 482ms (ActiveRecord: 0.3ms | Allocations: 101733)
+
+
+  
+NameError (undefined local variable or method `root_path' for #<SessionsController:0x00007fa91b2004b0>
+Did you mean?  post_path):
+  
+app/controllers/sessions_controller.rb:13:in `create'
+Started POST "/sessions" for ::1 at 2020-09-30 12:12:23 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#create as JS
+  Parameters: {"authenticity_token"=>"XTaZEUumT/6WlBlNHf7u+V6VijKkTpX1rCBucyG+Gxa6jms6AjjdmBeD4cm4e8Io/VHUFgBN4M4fgep8cyXWPQ==", "user"=>{"username"=>"Karim", "password"=>"[FILTERED]"}, "commit"=>"sign in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Karim"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9:in `create'
+Completed 500 Internal Server Error in 500ms (ActiveRecord: 1.2ms | Allocations: 109500)
+
+
+  
+NameError (undefined local variable or method `root_path' for #<SessionsController:0x00007fa915b81530>
+Did you mean?  post_path):
+  
+app/controllers/sessions_controller.rb:13:in `create'
+Started POST "/sessions" for ::1 at 2020-09-30 12:12:57 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by SessionsController#create as JS
+  Parameters: {"authenticity_token"=>"XTaZEUumT/6WlBlNHf7u+V6VijKkTpX1rCBucyG+Gxa6jms6AjjdmBeD4cm4e8Io/VHUFgBN4M4fgep8cyXWPQ==", "user"=>{"username"=>"Karim", "password"=>"[FILTERED]"}, "commit"=>"sign in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "Karim"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9:in `create'
+Redirected to http://localhost:3000/62/feed
+Completed 200 OK in 297ms (ActiveRecord: 0.9ms | Allocations: 8887)
+
+
+Started GET "/62/feed" for ::1 at 2020-09-30 12:12:58 -0500
+Processing by UsersController#feed as HTML
+  Parameters: {"id"=>"62"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 62], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:27:in `authenticated?'
+  Rendering users/feed.html.erb within layouts/application
+  Rendered users/feed.html.erb within layouts/application (Duration: 0.5ms | Allocations: 79)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 14.5ms | ActiveRecord: 0.3ms | Allocations: 5626)
+
+
+Started GET "/62/feed" for ::1 at 2020-09-30 12:13:30 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#feed as HTML
+  Parameters: {"id"=>"62"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 62], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:27:in `authenticated?'
+  Rendering users/feed.html.erb within layouts/application
+  Rendered users/feed.html.erb within layouts/application (Duration: 1.3ms | Allocations: 190)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 72ms (Views: 37.3ms | ActiveRecord: 1.2ms | Allocations: 20548)
+
+
+Started GET "/62/feed" for ::1 at 2020-09-30 12:13:38 -0500
+Processing by UsersController#feed as HTML
+  Parameters: {"id"=>"62"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 62], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:27:in `authenticated?'
+  Rendering users/feed.html.erb within layouts/application
+  Rendered users/feed.html.erb within layouts/application (Duration: 0.1ms | Allocations: 5)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 9.5ms | ActiveRecord: 0.3ms | Allocations: 4799)
+
+
+Started GET "/62/show" for ::1 at 2020-09-30 12:13:53 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/62/show"):
+  
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users/62" for ::1 at 2020-09-30 12:14:14 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"62"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 62], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:27:in `authenticated?'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 62]]
+  ↳ app/views/users/show.html.erb:4
+  Rendered users/show.html.erb within layouts/application (Duration: 32.3ms | Allocations: 6749)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 47ms (Views: 40.0ms | ActiveRecord: 1.6ms | Allocations: 11633)
+
+
+Started DELETE "/sessions" for ::1 at 2020-09-30 12:14:16 -0500
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"AmKrixYXXlH27ZZUQsmSfrlis5Y21gKicAK93hOT+zHl2lmgX4nMN3f6btDnTL6vGqbtspLVd5nDoznRQQg2Gg=="}
+Redirected to http://localhost:3000/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 395)
+
+
+Started GET "/sign_in" for ::1 at 2020-09-30 12:14:16 -0500
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 356.2ms | Allocations: 198712)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 366ms (Views: 364.2ms | ActiveRecord: 0.0ms | Allocations: 203546)
+
+
+Started GET "/62/feed" for ::1 at 2020-09-30 12:14:22 -0500
+Processing by UsersController#feed as HTML
+  Parameters: {"id"=>"62"}
+Redirected to http://localhost:3000/sign_in
+Filter chain halted as :authenticated? rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 303)
+
+
+Started GET "/sign_in" for ::1 at 2020-09-30 12:14:22 -0500
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 2.3ms | Allocations: 643)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 12.3ms | ActiveRecord: 0.0ms | Allocations: 4899)
+
+
+Started GET "/62/feed" for ::1 at 2020-09-30 12:14:29 -0500
+Processing by UsersController#feed as HTML
+  Parameters: {"id"=>"62"}
+Redirected to http://localhost:3000/sign_in
+Filter chain halted as :authenticated? rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 299)
+
+
+Started GET "/sign_in" for ::1 at 2020-09-30 12:14:29 -0500
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 2.8ms | Allocations: 644)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.4ms | ActiveRecord: 0.0ms | Allocations: 4896)
+
+
+Started GET "/users/14" for ::1 at 2020-09-30 12:14:43 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"14"}
+Redirected to http://localhost:3000/sign_in
+Filter chain halted as :authenticated? rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 296)
+
+
+Started GET "/sign_in" for ::1 at 2020-09-30 12:14:43 -0500
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 4.3ms | Allocations: 644)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.0ms | Allocations: 4898)
+
+

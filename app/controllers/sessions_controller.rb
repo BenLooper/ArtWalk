@@ -4,18 +4,17 @@ class SessionsController < ApplicationController
     @user = User.new 
   end
 
-  def create 
 
+  def create 
     @user = User.find_by username:user_params[:username]
 
     if @user && @user.authenticate(user_params[:password]) 
       session[:id] = @user.id
-      redirect_to root_path
+      redirect_to feed_path(@user)
 
     else 
       flash[:error] = "Incorrect username or password"
       redirect_to sign_in_path
-
     end 
   end 
 

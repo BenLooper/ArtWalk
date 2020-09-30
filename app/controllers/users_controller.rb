@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
+    before_action :authenticated?, only: [:feed, :show, :activity]
 
     def show
-        @user = User.find(params[:id])
+    end 
+
+    def feed 
     end 
 
     def new 
@@ -13,9 +16,17 @@ class UsersController < ApplicationController
 
         if new_user.save && user_params[:password] == user_params[:password_confirmation]
             session[:id] = new_user[:id]
-            redirect_to new_user
+            redirect_to feed_path(new_user)
         else 
             redirect_to new_user_path
+        end 
+    end 
+
+    def authenticated?
+        if session[:id] != nil
+            @user = User.find(session[:id])
+        else 
+            redirect_to sign_in_path
         end 
     end 
 

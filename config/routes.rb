@@ -1,11 +1,10 @@
 Rails.application.routes.draw do\
 
-  root "application#feed"
-
   #sign in 
   get '/sign_in', to: "sessions#sign_in"
   post '/sessions', to: "sessions#create"
   delete '/sessions', to: "sessions#destroy"
+  get '/:id/feed', to: 'users#feed', as: "feed"
   
   resources :comments
   resources :slaps
