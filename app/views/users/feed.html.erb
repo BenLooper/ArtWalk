@@ -1,0 +1,7 @@
+<%@user.backee_posts.each do |post|%>
+    <label><strong><%=link_to post.user_name, user_path(post.user)%></strong></label>
+    <p><img src=‘<%=post.image_url%>’ alt=“Random Image”></p>
+    <p>Snaps:<%=” “+ post.snap_number%><%=” “%>Slaps:<%=” “+post.slap_number%></p>
+    <p><%=post.description%></p>
+    <br>
+<%end%>

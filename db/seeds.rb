@@ -4,7 +4,7 @@ Genre.destroy_all
 Comment.destroy_all
 Snap.destroy_all
 Slap.destroy_all
-
+Back.destroy_all
 
 
 # Users 
@@ -50,11 +50,21 @@ end
     )
 end 
 
+
 #Slaps
 10.times do 
     Slap.create(
         user:User.all.sample,
         post:Post.all.sample
+    )
+end 
+
+
+#Backs
+20.times do 
+    Back.create(
+        backer:User.all.sample,
+        backee:User.all.sample
     )
 end 
 

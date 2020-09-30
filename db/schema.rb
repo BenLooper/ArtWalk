@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_30_151825) do
+ActiveRecord::Schema.define(version: 2020_09_30_192417) do
+
+  create_table "backs", force: :cascade do |t|
+    t.integer "backer_id"
+    t.integer "backee_id"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
