@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
     before_action :authenticated?
-    before_action :current_post, only: [:edit,:update,:destroy]
+    before_action :current_post, only: [:edit,:update]
 
     def index
         @posts = Post.all
@@ -24,6 +24,8 @@ class PostsController < ApplicationController
     end 
 
     def destroy 
+        Post.destroy(params[:id])
+        redirect_to user_path(session[:id])
     end 
 
 

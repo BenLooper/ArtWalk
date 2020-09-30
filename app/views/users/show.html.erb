@@ -17,7 +17,7 @@
 <p>Snaps:<%=" "+ post.snap_number%><%=" "%>Slaps:<%=" "+post.slap_number%></p>
 <%if @user == @profile %>
 <%= button_to "Edit", edit_post_path(post), controller:"posts",action:"edit",method:"get"%>
-<%= button_to "Delete", "/posts/:id", controller:"posts",action:"destroy",method:"delete"%>
+<%= button_to "Delete", {controller: :posts, action:"destroy", id:post.id}, :method => :delete%>%>
 <%end%>
 <p><%=post.description%></p>
 
