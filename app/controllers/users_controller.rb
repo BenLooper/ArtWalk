@@ -24,6 +24,11 @@ class UsersController < ApplicationController
     end 
 
     def activity 
+        @snaps = @user.snaps
+        @slaps = @user.slaps
+        @comments = @user.comments
+        @posts = @user.posts
+        
     end 
 
 

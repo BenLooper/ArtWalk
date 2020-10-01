@@ -22,4 +22,5 @@ class User < ApplicationRecord
         self.backees.include?(profile)
     end 
 
-end
+
+end 
