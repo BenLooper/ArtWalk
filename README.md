@@ -73,4 +73,34 @@ Deliverables:
 
 
         - Can DM other users
+    
+    Front-End Deliverables:
+        
+        -Overall color scheme
+            -dark themed 
+            -white lettering
+            
+        -Navbar
+            - Smaller, reflects user options: Feed, Explore, Activity, personal profile, post
+            - Vertically?
+        
+        -Posts
+            -images are most important
+            -replace snap and slap with little pictures of snap/slap
+            -make description fancy (cursive?)
+            -make comments fancy 
+            -comment names link to show page
+            -make buttons not ugly 
+            -fix edit/delete so they don't look clunky (hide them in little dots?)
+
+
+        -User feed page
+            - Word "Feed" over middle of page
+            - 3 columns of posts centered on the middle, evenly spaced
+            - Posts centered in middle, take up a lot of space (sort of like tumblr)
+
+        For every page (besides activity page)
+            -focused on the posts (centered and large)
+            -header to let you know where you are 
+
        
