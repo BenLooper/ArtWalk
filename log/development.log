@@ -15045,3 +15045,178 @@ Processing by UsersController#feed as HTML
 Completed 200 OK in 52ms (Views: 44.6ms | ActiveRecord: 4.3ms | Allocations: 16609)
 
 
+Started GET "/sign_in" for ::1 at 2020-09-30 22:18:15 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 297.3ms | Allocations: 199823)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 377ms (Views: 338.0ms | ActiveRecord: 0.9ms | Allocations: 220756)
+
+
+Started POST "/sessions" for ::1 at 2020-09-30 22:18:22 -0500
+Processing by SessionsController#create as JS
+  Parameters: {"authenticity_token"=>"RZnxE86wipkd8B836AGq7QaP44FFh2xi4dx2A5K4Ql/U2SFS0kZKr8EBxUqPlXR7OKewHwRBRwcxwAKzzLRjRQ==", "user"=>{"username"=>"ben", "password"=>"[FILTERED]"}, "commit"=>"sign in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "ben"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9:in `create'
+Redirected to http://localhost:3000/sign_in
+Completed 200 OK in 292ms (ActiveRecord: 0.3ms | Allocations: 1557)
+
+
+Started GET "/sign_in" for ::1 at 2020-09-30 22:18:22 -0500
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 1.8ms | Allocations: 655)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.0ms | Allocations: 4907)
+
+
+Started GET "/users/new" for ::1 at 2020-09-30 22:18:26 -0500
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1297)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 18.2ms | ActiveRecord: 0.0ms | Allocations: 6179)
+
+
+Started POST "/users" for ::1 at 2020-09-30 22:18:32 -0500
+Processing by UsersController#create as JS
+  Parameters: {"authenticity_token"=>"ckXZdOM/YzilBDLYxAEZEr95tRW/8AYvmG6wdkITLaFIQOtXsB+07UwkN5lLc5+FI7eT3IW5T+AFAFZ/qJgIFw==", "user"=>{"username"=>"guy", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:29:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?)[0m  [["username", "guy"], ["created_at", "2020-10-01 03:18:32.319852"], ["updated_at", "2020-10-01 03:18:32.319852"], ["password_digest", "$2a$12$DlCvb9L5E6HVv4zM40lGk..xs1YC.kvVK42gWsgpwIUHJ8c.bzNb6"]]
+  ↳ app/controllers/users_controller.rb:29:in `create'
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:29:in `create'
+Redirected to http://localhost:3000/97/feed
+Completed 200 OK in 299ms (ActiveRecord: 2.4ms | Allocations: 3471)
+
+
+Started GET "/97/feed" for ::1 at 2020-09-30 22:18:32 -0500
+Processing by UsersController#feed as HTML
+  Parameters: {"id"=>"97"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 97], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `authenticated?'
+  Rendering users/feed.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "backs" ON "users"."id" = "backs"."backee_id" WHERE "backs"."backer_id" = ?[0m  [["backer_id", 97]]
+  ↳ app/models/user.rb:17:in `collect'
+  Rendered users/feed.html.erb within layouts/application (Duration: 27.7ms | Allocations: 9074)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 32.6ms | ActiveRecord: 1.0ms | Allocations: 14023)
+
+
+Started GET "/posts" for ::1 at 2020-09-30 22:18:37 -0500
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 97], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `authenticated?'
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1471)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.3ms | Allocations: 5824)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1>Explore</h1>
+
+<br>
+
+<%@posts.each do |post|%>
+<label><strong><%=link_to post.user_name, user_path(post.user)%></strong></label>
+<p><img src='<%=post.image_url%>' alt="Random Image"></p>
+<p>Snaps:<%=" "+ post.snap_number%><%=" "%>Slaps:<%=" "+post.slap_number%></p>
+<p><%=post.description%></p>
+<%post.comments.each do |comment| %>
+<li><%=comment.user_name + ": "+ comment.content%></li>
+<%end%>
+<%= form_with url:'/comments', action:create, method:post, post_id:post.id, origin:"/posts"%>
+<%= f.text_field :content, placeholder:"Add a comment"%>
+<%= f.submit%>
+<%end%<
+<br>
+<%end%>
+):
+1:    <h1>Explore</h1>
+2:    
+3:    <br>
+4:    
+5:    <%@posts.each do |post|%>
+6:    <label><strong><%=link_to post.user_name, user_path(post.user)%></strong></label>
+7:    <p><img src='<%=post.image_url%>' alt="Random Image"></p>
+8:    <p>Snaps:<%=" "+ post.snap_number%><%=" "%>Slaps:<%=" "+post.slap_number%></p>
+9:    <p><%=post.description%></p>
+10:    <%post.comments.each do |comment| %>
+11:    <li><%=comment.user_name + ": "+ comment.content%></li>
+12:    <%end%>
+13:    <%= form_with url:'/comments', action:create, method:post, post_id:post.id, origin:"/posts"%>
+14:    <%= f.text_field :content, placeholder:"Add a comment"%>
+15:    <%= f.submit%>
+16:    <%end%<
+17:    <br>
+18:    <%end%>
+  
+app/views/posts/index.html.erb:16: syntax error, unexpected '<'
+app/views/posts/index.html.erb:18: unknown type of %string
+app/views/posts/index.html.erb:16: syntax error, unexpected '<'
+app/views/posts/index.html.erb:18: unknown type of %string
+app/views/posts/index.html.erb:16: syntax error, unexpected '<'
+app/views/posts/index.html.erb:18: unknown type of %string
+app/views/posts/index.html.erb:16: syntax error, unexpected '<'
+app/views/posts/index.html.erb:18: unknown type of %string
+app/views/posts/index.html.erb:16: syntax error, unexpected '<'
+app/views/posts/index.html.erb:18: unknown type of %string
+app/views/posts/index.html.erb:16: syntax error, unexpected '<'
+app/views/posts/index.html.erb:18: unknown type of %string
+Started GET "/posts" for ::1 at 2020-09-30 22:18:47 -0500
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 97], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `authenticated?'
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1220)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.4ms | Allocations: 2983)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1>Explore</h1>
+
+<br>
+
+<%@posts.each do |post|%>
+<label><strong><%=link_to post.user_name, user_path(post.user)%></strong></label>
+<p><img src='<%=post.image_url%>' alt="Random Image"></p>
+<p>Snaps:<%=" "+ post.snap_number%><%=" "%>Slaps:<%=" "+post.slap_number%></p>
+<p><%=post.description%></p>
+<%post.comments.each do |comment| %>
+<li><%=comment.user_name + ": "+ comment.content%></li>
+<%end%>
+<%= form_with url:'/comments', action:create, method:post, post_id:post.id, origin:"/posts"%>
+<%= f.text_field :content, placeholder:"Add a comment"%>
+<%= f.submit%>
+<%end%>
+<br>
+<%end%>
+):
+1:    <h1>Explore</h1>
+2:    
+3:    <br>
+4:    
+5:    <%@posts.each do |post|%>
+6:    <label><strong><%=link_to post.user_name, user_path(post.user)%></strong></label>
+7:    <p><img src='<%=post.image_url%>' alt="Random Image"></p>
+8:    <p>Snaps:<%=" "+ post.snap_number%><%=" "%>Slaps:<%=" "+post.slap_number%></p>
+9:    <p><%=post.description%></p>
+10:    <%post.comments.each do |comment| %>
+11:    <li><%=comment.user_name + ": "+ comment.content%></li>
+12:    <%end%>
+13:    <%= form_with url:'/comments', action:create, method:post, post_id:post.id, origin:"/posts"%>
+14:    <%= f.text_field :content, placeholder:"Add a comment"%>
+15:    <%= f.submit%>
+16:    <%end%>
+17:    <br>
+18:    <%end%>
+  
+app/views/posts/index.html.erb:20: syntax error, unexpected end, expecting end-of-input
+app/views/posts/index.html.erb:20: syntax error, unexpected end, expecting end-of-input
+app/views/posts/index.html.erb:20: syntax error, unexpected end, expecting end-of-input
+app/views/posts/index.html.erb:20: syntax error, unexpected end, expecting end-of-input
+app/views/posts/index.html.erb:20: syntax error, unexpected end, expecting end-of-input
+app/views/posts/index.html.erb:20: syntax error, unexpected end, expecting end-of-input
