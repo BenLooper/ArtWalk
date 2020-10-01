@@ -58,18 +58,18 @@ Deliverables:
             - user can delete posts they've made --DONE
             - add validations
 
-        - Can comment on posts
-            - user can edit comments they've made 
-            - user can delete comments they've made
+        - Can comment on posts --DONE
+            - user can edit comments they've made --DONE
+            - user can delete comments they've made --DONE
             - user can snap/slap a comment 
             - add validations
 
 
-        - Can snap a post once per user, can't snap if already slapped
-            - can unsnap a post
+        - Can snap a post once per user, can't snap if already slapped --DONE
+            - can unsnap a post --DONE
 
-        - Can slap a post once per user, can't slap if already snapped
-            - can unslap a post
+        - Can slap a post once per user, can't slap if already snapped --DONE
+            - can unslap a post --DONE
 
 
         - Can DM other users

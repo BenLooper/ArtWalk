@@ -4,11 +4,33 @@
 
 <p>Snaps:<%=" "+ @post.snap_number%><%=" "%>Slaps:<%=" "+@post.slap_number%></p>
 
+<%if !@post.snapped_user?(@user) && !@post.slapped_user?(@user)  %>
+        <%= button_to "Snap", {controller: :snaps, action:"create", post_id:@post.id, origin:post_path(@post)}, :method => :post%>
+        <%= button_to "Slap", {controller: :slaps, action:"create", post_id:@post.id, origin:post_path(@post)}, :method => :post%>
+
+    <%elsif @post.snapped_user?(@user)%>
+        <%= button_to "Unsnap","/snaps/:id", controller: :snaps, action:"destroy",params:{post_id:@post.id,origin:post_path(@post)},method: :delete%>
+
+    <%elsif @post.slapped_user?(@user)%>
+        <%= button_to "Unslap", "/slaps/:id", controller: :snaps, action:"destroy", params:{post_id:@post.id, origin:post_path(@post)}, method: :delete%>
+
+<%end%>
+
 <p><%=@post.description%></p>
 
 <%@post.comments.each do |comment|%>
     <li><%="#{comment.user_name}" + ": " + comment.content%></li>
+    <%if @user == comment.user%>
+    <%= button_to "Edit Comment", edit_comment_path(comment), controller:'comments', action:'edit', method:'get'%>
+    <%= button_to "Delete Comment", {controller: :comments, action:"destroy", id:comment.id, post_id:@post.id}, :method => :delete%>
+    <%end%>
 <%end%>
 
-
 <br>
+
+<%=form_with url:comments_path {controller:comments} do |f|%>
+<%=f.text_field :content, placeholder:"Add a comment"%>
+<%=f.hidden_field :post_id, value:"#{@post.id}"%>
+<%=f.submit value:"Post Comment"%>
+<%end%>
+

@@ -23,6 +23,10 @@ class UsersController < ApplicationController
         redirect_to user_path(params[:id])
     end 
 
+    def activity 
+    end 
+
+
     def create 
         new_user = User.new(user_params)
 
@@ -41,4 +45,4 @@ class UsersController < ApplicationController
         params.require(:user).permit(:username, :password, :password_confirmation)
     end 
 
-end
+end 

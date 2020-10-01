@@ -5,7 +5,9 @@ Rails.application.routes.draw do\
   post '/sessions', to: "sessions#create"
   delete '/sessions', to: "sessions#destroy"
 
+  #user specific pages 
   get '/:id/feed', to: 'users#feed', as: "feed"
+  get '/:id/activity', to: 'users#activity', as: "activity"
   
   #follow someone
   post "/users/:id", to: "users#back", as: "back"
@@ -19,5 +21,5 @@ Rails.application.routes.draw do\
   resources :genres
   resources :posts
   resources :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
 end

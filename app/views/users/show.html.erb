@@ -19,9 +19,20 @@
 
     <p>Snaps:<%=" "+ post.snap_number%><%=" "%>Slaps:<%=" "+post.slap_number%></p>
 
+    <%if !post.snapped_user?(@user) && !post.slapped_user?(@user)  %>
+        <%= button_to "Snap", {controller: :snaps, action:"create", post_id:post.id, origin:user_path(@profile)}, :method => :post%>
+        <%= button_to "Slap", {controller: :slaps, action:"create", post_id:post.id, origin:user_path(@profile)}, :method => :post%>
+
+    <%elsif post.snapped_user?(@user)%>
+        <%= button_to "Unsnap","/snaps/:id", controller: :snaps, action:"destroy",params:{post_id:post.id,origin:user_path(@profile)},method: :delete%>
+
+    <%elsif post.slapped_user?(@user)%>
+        <%= button_to "Unslap", "/slaps/:id", controller: :snaps, action:"destroy", params:{post_id:post.id, origin:feed_path}, method: :delete%>
+    <%end%>
+
     <%if @user == @profile %>
-        <%= button_to "Edit", edit_post_path(post), controller:"posts",action:"edit",method:"get"%>
-        <%= button_to "Delete", {controller: :posts, action:"destroy", id:post.id}, :method => :delete%>%>
+        <%= button_to "Edit Post", edit_post_path(post), controller:"posts",action:"edit",method:"get"%>
+        <%= button_to "Delete Post", {controller: :posts, action:"destroy", id:post.id}, :method => :delete%>
     <%end%>
 
     <p><%=post.description%></p>
