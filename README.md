@@ -45,7 +45,7 @@ Deliverables:
             - Can logout -- will redirect to login --DONE 
             - Add validations for sign up (unique pass/username)
             - Home page (Feed) displays only posts by users that logged in user backs (their specific home page) --DONE
-            - Notifications page displays any and all activity pertaining to the logged in user 
+            - Notifications page displays any and all activity pertaining to the logged in user-DONE
             - Non logged in users can't access these pages --DONE 
 
         - Can back other users --DONE
