@@ -1,9 +1,12 @@
 class PostsController < ApplicationController
     before_action :authenticated?
-    before_action :current_post, only: [:edit,:update]
+    before_action :current_post, only: [:show,:edit,:update]
 
     def index
         @posts = Post.all
+    end 
+
+    def show 
     end 
 
     def new 

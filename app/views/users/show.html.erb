@@ -20,9 +20,7 @@
 <%= button_to "Delete", {controller: :posts, action:"destroy", id:post.id}, :method => :delete%>%>
 <%end%>
 <p><%=post.description%></p>
-<%post.comments.each do |comment| %>
-<li><%=comment.user_name + ": "+ comment.content%></li>
-<%end%>
+<%= button_to "View Post", post_path(post), controller:'posts', action:'show', method:'get'%>
 <br>
 
 <%end%>
