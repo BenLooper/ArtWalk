@@ -1,26 +1,33 @@
 <h1><%=@profile.username%></h1>
 
 <%if @user == @profile %>
-<%= button_to "Logout", "/sessions", controller:'sessions', action:'destroy', method:'delete'%>
+    <%= button_to "Logout", "/sessions", controller:'sessions', action:'destroy', method:'delete'%>
 <%elsif @user.backed_profile?(@profile)%>
-<h2 style="color:green">Backed</h2>
-<%= button_to "Forget this artist", forget_path, controller:"users",action:"forget",method:"post", id:@user.id%>
+    <h2 style="color:green">Backed</h2>
+    <%= button_to "Forget this artist", forget_path, controller:"users",action:"forget",method:"post", id:@user.id%>
 <%else%>
-<%= button_to "Back this artist", back_path, controller:"users",action:"back",method:"post", id:@user.id%>
+    <%= button_to "Back this artist", back_path, controller:"users",action:"back",method:"post", id:@user.id%>
 <%end%>
 
 <br>
 
 <%@profile.posts.each do |post|%>
-<label><strong><%=link_to post.user_name, user_path(post.user)%></strong></label>
-<p><img src='<%=post.image_url%>' alt="Random Image"></p>
-<p>Snaps:<%=" "+ post.snap_number%><%=" "%>Slaps:<%=" "+post.slap_number%></p>
-<%if @user == @profile %>
-<%= button_to "Edit", edit_post_path(post), controller:"posts",action:"edit",method:"get"%>
-<%= button_to "Delete", {controller: :posts, action:"destroy", id:post.id}, :method => :delete%>%>
-<%end%>
-<p><%=post.description%></p>
-<%= button_to "View Post", post_path(post), controller:'posts', action:'show', method:'get'%>
-<br>
+
+    <label><strong><%=link_to post.user_name, user_path(post.user)%></strong></label>
+
+    <p><img src='<%=post.image_url%>' alt="Random Image"></p>
+
+    <p>Snaps:<%=" "+ post.snap_number%><%=" "%>Slaps:<%=" "+post.slap_number%></p>
+
+    <%if @user == @profile %>
+        <%= button_to "Edit", edit_post_path(post), controller:"posts",action:"edit",method:"get"%>
+        <%= button_to "Delete", {controller: :posts, action:"destroy", id:post.id}, :method => :delete%>%>
+    <%end%>
+
+    <p><%=post.description%></p>
+
+    <%= button_to "View Post", post_path(post), controller:'posts', action:'show', method:'get'%>
+
+    <br>
 
 <%end%>

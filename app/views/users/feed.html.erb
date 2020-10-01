@@ -6,6 +6,8 @@
     <p>Snaps:<%=post.snap_number + " "%>Slaps:<%=post.slap_number%> </p>
 
     <p><%=post.description%></p>
+
     <%= button_to "View Post", post_path(post), controller:'posts', action:'show', method:'get'%>
+    
     <br>
 <%end%>
