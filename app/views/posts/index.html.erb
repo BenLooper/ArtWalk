@@ -7,5 +7,9 @@
 <p><img src='<%=post.image_url%>' alt="Random Image"></p>
 <p>Snaps:<%=" "+ post.snap_number%><%=" "%>Slaps:<%=" "+post.slap_number%></p>
 <p><%=post.description%></p>
+<%post.comments.each do |comment| %>
+<li><%=comment.user_name + ": "+ comment.content%></li>
+<%end%>
+<input type='text'
 <br>
 <%end%>

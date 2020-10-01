@@ -17,4 +17,5 @@ class Post < ApplicationRecord
     def slap_number
         self.slaps.count.to_s
     end 
+
 end

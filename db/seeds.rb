@@ -37,6 +37,7 @@ end
 #Comments
 10.times do 
     Comment.create(
+        content:Faker::Lorem.sentence,
         user:User.all.sample,
         post:Post.all.sample
     )
