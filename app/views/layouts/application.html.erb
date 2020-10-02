@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ArtWalk</title>
+    <title>TheGalley</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <%= render 'layouts/navbar' %>
+    <%= render 'layouts/navbar' unless @disable_nav %>
     <%= yield %>
   </body>
 </html>

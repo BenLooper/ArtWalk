@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def sign_in
+    @disable_nav = true
     @user = User.new 
   end
 

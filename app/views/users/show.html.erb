@@ -1,7 +1,7 @@
 <h1><%=@profile.username%></h1>
 
 <%if @user == @profile %>
-    <%= button_to "Logout", "/sessions", controller:'sessions', action:'destroy', method:'delete'%>
+    
 <%elsif @user.backed_profile?(@profile)%>
     <h2 style="color:green">Backed</h2>
     <%= button_to "Forget this artist", forget_path, controller:"users",action:"forget",method:"post", id:@user.id%>
