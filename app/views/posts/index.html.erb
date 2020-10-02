@@ -1,25 +1,48 @@
-<%@posts.each do |post|%>
-    <label><strong><%=link_to post.user_name, user_path(post.user)%></strong></label>
 
-    <p><img src='<%=post.image_url%>' alt="Random Image"></p>
 
-    <p>Snaps:<%=" "+ post.snap_number%><%=" "%>Slaps:<%=" "+post.slap_number%></p>
+<style>
+body {
+  background: #CB9ACB;
+}
 
-    <%if !post.snapped_user?(@user) && !post.slapped_user?(@user)  %>
-        <%= button_to "Snap", {controller: :snaps, action:"create", post_id:post.id, origin:posts_path}, :method => :post%>
-        <%= button_to "Slap", {controller: :slaps, action:"create", post_id:post.id, origin:posts_path}, :method => :post%>
+.content {
+  max-width: 500px ;
+  margin: auto;
+  background: #E1B7B7;
+  padding: 10px;
+}
+</style>
+ 
+<div class="content" > 
+        <h1 >Explore</h1>
+        <br>
 
-    <%elsif post.snapped_user?(@user)%>
-        <%= button_to "Unsnap","/snaps/:id", controller: :snaps, action:"destroy",params:{post_id:post.id,origin:posts_path},method: :delete%>
+                <%@posts.each do |post|%>
+                    <label > <strong><%=link_to post.user_name, user_path(post.user), class: "btn  btn-link" %></strong></label> 
+                    
+                
 
-    <%elsif post.slapped_user?(@user)%>
-        <%= button_to "Unslap", "/slaps/:id", controller: :snaps, action:"destroy", params:{post_id:post.id, origin:posts_path}, method: :delete%>
-    <%end%>
+                    <p><img src='<%=post.image_url%>' alt="Random Image"></p>
 
-    <p><%=post.description%></p>
+                    <p>Snaps:<%=" "+ post.snap_number%><%=" "%>Slaps:<%=" "+post.slap_number%></p>
 
-    <%= button_to "View Post", post_path(post), controller:'posts', action:'show', method:'get'%>
-    
-    <br>
-<%end%>
+                    <%if !post.snapped_user?(@user) && !post.slapped_user?(@user)  %>
+                        <%= button_to "Snap",  {controller: :snaps, action:"create", post_id:post.id, origin:posts_path}, :method => :post, class: "btn btn-default btn-primary"%>
+                        <%= button_to "Slap", {controller: :slaps, action:"create", post_id:post.id, origin:posts_path}, :method => :post, class: "btn btn-default btn-warning"%>
+
+                    <%elsif post.snapped_user?(@user)%>
+                        <%= button_to "Unsnap","/snaps/:id", controller: :snaps, action:"destroy",params:{post_id:post.id,origin:posts_path},method: :delete, class: "btn btn-default btn-success"%>
+
+                    <%elsif post.slapped_user?(@user)%>
+                        <%= button_to "Unslap", "/slaps/:id", controller: :snaps, action:"destroy", params:{post_id:post.id, origin:posts_path}, method: :delete, class: "btn btn-default btn-info"%>
+                    <%end%>
+
+                    <p><%=post.description%></p>
+
+                    <%= button_to "View Post", post_path(post), controller:'posts', action:'show', method:'get', class: "btn btn-default btn-primary" %>
+                    
+                    <br>
+                <%end%>
+
+</div>
 

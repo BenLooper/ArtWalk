@@ -1,6 +1,14 @@
 <img src='<%=@post.image_url%>' alt="Random Image">
+
 <%=form_with model:@comment do |f|%>
-<%=f.text_field :content%>
-<%=f.hidden_field :post_id, value:"#{@post.id}"%>
-<%=f.submit value:"Edit Comment"%>
-<%end%>
+
+  <div class="form-group">
+  <%=f.text_field :content%>
+  </div>
+
+<div class="form-group">
+  <%=f.hidden_field :post_id, value:"#{@post.id}"%>
+  <%=f.submit value:"Edit Comment"%>
+</div>
+
+ <%end%>

@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     end 
 
     def edit 
-        # byebug
+       
         @post = Post.find(@comment.post.id)
     end 
 
@@ -24,6 +24,7 @@ class CommentsController < ApplicationController
     end 
 
     def current_comment
+         
         @comment = Comment.find(params[:id])
     end 
 
