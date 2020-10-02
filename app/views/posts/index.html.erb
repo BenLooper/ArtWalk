@@ -22,10 +22,10 @@
                     <%elsif post.slapped_user?(@user)%>
                         <%= button_to "Unslap", "/slaps/:id", controller: :snaps, action:"destroy", params:{post_id:post.id, origin:posts_path}, method: :delete, class: "btn   btn-danger"%> <br>
                     <%end%>
-                    <br>
+
                     <p><%=post.description%></p>
 
-                    <%= button_to "View Post", post_path(post), controller:'posts', action:'show', method:'get', class: "btn  btn-default" %>
+                    <%= button_to "View Post", post_path(post), controller:'posts', action:'show', method:'get',class:"btn btn-success"%> 
                     
                     <br>
                 <%end%>

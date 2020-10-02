@@ -29,7 +29,7 @@
         <%= button_to "Unsnap","/snaps/:id", controller: :snaps, action:"destroy",params:{post_id:post.id,origin:user_path(@profile)},method: :delete, class: "btn btn-success"%> <br>
 
     <%elsif post.slapped_user?(@user)%>
-        <%= button_to "Unslap", "/slaps/:id", controller: :snaps, action:"destroy", params:{post_id:post.id, origin:feed_path}, method: :delete, class: "btn btn-danger"%> <br>
+        <%= button_to "Unslap", "/slaps/:id", controller: :snaps, action:"destroy", params:{post_id:post.id, origin:user_path}, method: :delete, class: "btn btn-danger"%> <br>
     <%end%>
 
     <%if @user == @profile %>
