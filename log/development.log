@@ -46926,3 +46926,382 @@ Processing by SessionsController#sign_in as HTML
 Completed 200 OK in 274ms (Views: 273.3ms | ActiveRecord: 0.0ms | Allocations: 202938)
 
 
+Started GET "/sign_in" for ::1 at 2020-10-02 09:05:06 -0500
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 276.8ms | Allocations: 200169)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 328ms (Views: 301.3ms | ActiveRecord: 0.5ms | Allocations: 221571)
+
+
+Started POST "/sessions" for ::1 at 2020-10-02 09:05:15 -0500
+Processing by SessionsController#create as JS
+  Parameters: {"authenticity_token"=>"jm5TtpscFxZNs7t5ahJZwiMVEdifyLXmgWhQYjAKLYXAUHl+NG60In2DTfNHfojOreaWmf/yaIZXo520X0dI2w==", "user"=>{"username"=>"ben", "password"=>"[FILTERED]"}, "commit"=>"sign in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "ben"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+Redirected to http://localhost:3000/108/feed
+Completed 200 OK in 284ms (ActiveRecord: 0.3ms | Allocations: 1551)
+
+
+Started GET "/108/feed" for ::1 at 2020-10-02 09:05:16 -0500
+Processing by UsersController#feed as HTML
+  Parameters: {"id"=>"108"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 108], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `authenticated?'
+  Rendering users/feed.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "backs" ON "users"."id" = "backs"."backee_id" WHERE "backs"."backer_id" = ?[0m  [["backer_id", 108]]
+  ↳ app/models/user.rb:18:in `collect'
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 102]]
+  ↳ app/models/user.rb:18:in `flatten'
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 106]]
+  ↳ app/models/user.rb:18:in `flatten'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "snaps" WHERE "snaps"."post_id" = ?[0m  [["post_id", 97]]
+  ↳ app/models/post.rb:14:in `snap_number'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "slaps" WHERE "slaps"."post_id" = ?[0m  [["post_id", 97]]
+  ↳ app/models/post.rb:18:in `slap_number'
+  [1m[36mSnap Load (0.4ms)[0m  [1m[34mSELECT "snaps".* FROM "snaps" WHERE "snaps"."post_id" = ?[0m  [["post_id", 97]]
+  ↳ app/models/post.rb:22:in `collect'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 107], ["LIMIT", 1]]
+  ↳ app/models/post.rb:22:in `block in snapped_users'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 107], ["LIMIT", 1]]
+  ↳ app/models/post.rb:22:in `block in snapped_users'
+  [1m[36mSlap Load (0.3ms)[0m  [1m[34mSELECT "slaps".* FROM "slaps" WHERE "slaps"."post_id" = ?[0m  [["post_id", 97]]
+  ↳ app/models/post.rb:30:in `collect'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 106], ["LIMIT", 1]]
+  ↳ app/models/post.rb:30:in `block in slapped_users'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 107], ["LIMIT", 1]]
+  ↳ app/models/post.rb:30:in `block in slapped_users'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "snaps" WHERE "snaps"."post_id" = ?[0m  [["post_id", 99]]
+  ↳ app/models/post.rb:14:in `snap_number'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "slaps" WHERE "slaps"."post_id" = ?[0m  [["post_id", 99]]
+  ↳ app/models/post.rb:18:in `slap_number'
+  [1m[36mSnap Load (0.1ms)[0m  [1m[34mSELECT "snaps".* FROM "snaps" WHERE "snaps"."post_id" = ?[0m  [["post_id", 99]]
+  ↳ app/models/post.rb:22:in `collect'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 107], ["LIMIT", 1]]
+  ↳ app/models/post.rb:22:in `block in snapped_users'
+  [1m[36mSlap Load (0.1ms)[0m  [1m[34mSELECT "slaps".* FROM "slaps" WHERE "slaps"."post_id" = ?[0m  [["post_id", 99]]
+  ↳ app/models/post.rb:30:in `collect'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/models/post.rb:30:in `block in slapped_users'
+  Rendered users/feed.html.erb within layouts/application (Duration: 140.0ms | Allocations: 39985)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_navbar.html.erb (Duration: 1.1ms | Allocations: 319)
+Completed 200 OK in 164ms (Views: 145.2ms | ActiveRecord: 8.1ms | Allocations: 45975)
+
+
+Started GET "/posts" for ::1 at 2020-10-02 09:05:24 -0500
+Processing by PostsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 108], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `authenticated?'
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:1
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 107], ["LIMIT", 1]]
+  ↳ app/models/post.rb:10:in `user_name'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "snaps" WHERE "snaps"."post_id" = ?[0m  [["post_id", 96]]
+  ↳ app/models/post.rb:14:in `snap_number'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "slaps" WHERE "slaps"."post_id" = ?[0m  [["post_id", 96]]
+  ↳ app/models/post.rb:18:in `slap_number'
+  [1m[36mSnap Load (0.1ms)[0m  [1m[34mSELECT "snaps".* FROM "snaps" WHERE "snaps"."post_id" = ?[0m  [["post_id", 96]]
+  ↳ app/models/post.rb:22:in `collect'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 108], ["LIMIT", 1]]
+  ↳ app/models/post.rb:22:in `block in snapped_users'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 109], ["LIMIT", 1]]
+  ↳ app/models/post.rb:22:in `block in snapped_users'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 102], ["LIMIT", 1]]
+  ↳ app/models/post.rb:10:in `user_name'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "snaps" WHERE "snaps"."post_id" = ?[0m  [["post_id", 97]]
+  ↳ app/models/post.rb:14:in `snap_number'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "slaps" WHERE "slaps"."post_id" = ?[0m  [["post_id", 97]]
+  ↳ app/models/post.rb:18:in `slap_number'
+  [1m[36mSnap Load (0.3ms)[0m  [1m[34mSELECT "snaps".* FROM "snaps" WHERE "snaps"."post_id" = ?[0m  [["post_id", 97]]
+  ↳ app/models/post.rb:22:in `collect'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 107], ["LIMIT", 1]]
+  ↳ app/models/post.rb:22:in `block in snapped_users'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 107], ["LIMIT", 1]]
+  ↳ app/models/post.rb:22:in `block in snapped_users'
+  [1m[36mSlap Load (0.3ms)[0m  [1m[34mSELECT "slaps".* FROM "slaps" WHERE "slaps"."post_id" = ?[0m  [["post_id", 97]]
+  ↳ app/models/post.rb:30:in `collect'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 106], ["LIMIT", 1]]
+  ↳ app/models/post.rb:30:in `block in slapped_users'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 107], ["LIMIT", 1]]
+  ↳ app/models/post.rb:30:in `block in slapped_users'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 107], ["LIMIT", 1]]
+  ↳ app/models/post.rb:10:in `user_name'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "snaps" WHERE "snaps"."post_id" = ?[0m  [["post_id", 98]]
+  ↳ app/models/post.rb:14:in `snap_number'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "slaps" WHERE "slaps"."post_id" = ?[0m  [["post_id", 98]]
+  ↳ app/models/post.rb:18:in `slap_number'
+  [1m[36mSnap Load (0.5ms)[0m  [1m[34mSELECT "snaps".* FROM "snaps" WHERE "snaps"."post_id" = ?[0m  [["post_id", 98]]
+  ↳ app/models/post.rb:22:in `collect'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 100], ["LIMIT", 1]]
+  ↳ app/models/post.rb:22:in `block in snapped_users'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 102], ["LIMIT", 1]]
+  ↳ app/models/post.rb:22:in `block in snapped_users'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 108], ["LIMIT", 1]]
+  ↳ app/models/post.rb:22:in `block in snapped_users'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 109], ["LIMIT", 1]]
+  ↳ app/models/post.rb:22:in `block in snapped_users'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 106], ["LIMIT", 1]]
+  ↳ app/models/post.rb:10:in `user_name'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "snaps" WHERE "snaps"."post_id" = ?[0m  [["post_id", 99]]
+  ↳ app/models/post.rb:14:in `snap_number'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "slaps" WHERE "slaps"."post_id" = ?[0m  [["post_id", 99]]
+  ↳ app/models/post.rb:18:in `slap_number'
+  [1m[36mSnap Load (0.1ms)[0m  [1m[34mSELECT "snaps".* FROM "snaps" WHERE "snaps"."post_id" = ?[0m  [["post_id", 99]]
+  ↳ app/models/post.rb:22:in `collect'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 107], ["LIMIT", 1]]
+  ↳ app/models/post.rb:22:in `block in snapped_users'
+  [1m[36mSlap Load (0.3ms)[0m  [1m[34mSELECT "slaps".* FROM "slaps" WHERE "slaps"."post_id" = ?[0m  [["post_id", 99]]
+  ↳ app/models/post.rb:30:in `collect'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/models/post.rb:30:in `block in slapped_users'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/models/post.rb:10:in `user_name'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "snaps" WHERE "snaps"."post_id" = ?[0m  [["post_id", 100]]
+  ↳ app/models/post.rb:14:in `snap_number'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "slaps" WHERE "slaps"."post_id" = ?[0m  [["post_id", 100]]
+  ↳ app/models/post.rb:18:in `slap_number'
+  [1m[36mSnap Load (0.1ms)[0m  [1m[34mSELECT "snaps".* FROM "snaps" WHERE "snaps"."post_id" = ?[0m  [["post_id", 100]]
+  ↳ app/models/post.rb:22:in `collect'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 105], ["LIMIT", 1]]
+  ↳ app/models/post.rb:22:in `block in snapped_users'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 99], ["LIMIT", 1]]
+  ↳ app/models/post.rb:22:in `block in snapped_users'
+  [1m[36mSlap Load (0.3ms)[0m  [1m[34mSELECT "slaps".* FROM "slaps" WHERE "slaps"."post_id" = ?[0m  [["post_id", 100]]
+  ↳ app/models/post.rb:30:in `collect'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 107], ["LIMIT", 1]]
+  ↳ app/models/post.rb:30:in `block in slapped_users'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/models/post.rb:30:in `block in slapped_users'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 100], ["LIMIT", 1]]
+  ↳ app/models/post.rb:30:in `block in slapped_users'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 108], ["LIMIT", 1]]
+  ↳ app/models/post.rb:30:in `block in slapped_users'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 105], ["LIMIT", 1]]
+  ↳ app/models/post.rb:10:in `user_name'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "snaps" WHERE "snaps"."post_id" = ?[0m  [["post_id", 101]]
+  ↳ app/models/post.rb:14:in `snap_number'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "slaps" WHERE "slaps"."post_id" = ?[0m  [["post_id", 101]]
+  ↳ app/models/post.rb:18:in `slap_number'
+  [1m[36mSnap Load (0.7ms)[0m  [1m[34mSELECT "snaps".* FROM "snaps" WHERE "snaps"."post_id" = ?[0m  [["post_id", 101]]
+  ↳ app/models/post.rb:22:in `collect'
+  [1m[36mSlap Load (0.2ms)[0m  [1m[34mSELECT "slaps".* FROM "slaps" WHERE "slaps"."post_id" = ?[0m  [["post_id", 101]]
+  ↳ app/models/post.rb:30:in `collect'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 107], ["LIMIT", 1]]
+  ↳ app/models/post.rb:30:in `block in slapped_users'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 99], ["LIMIT", 1]]
+  ↳ app/models/post.rb:30:in `block in slapped_users'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 108], ["LIMIT", 1]]
+  ↳ app/models/post.rb:30:in `block in slapped_users'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/models/post.rb:10:in `user_name'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "snaps" WHERE "snaps"."post_id" = ?[0m  [["post_id", 102]]
+  ↳ app/models/post.rb:14:in `snap_number'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "slaps" WHERE "slaps"."post_id" = ?[0m  [["post_id", 102]]
+  ↳ app/models/post.rb:18:in `slap_number'
+  [1m[36mSnap Load (0.2ms)[0m  [1m[34mSELECT "snaps".* FROM "snaps" WHERE "snaps"."post_id" = ?[0m  [["post_id", 102]]
+  ↳ app/models/post.rb:22:in `collect'
+  [1m[36mSlap Load (0.3ms)[0m  [1m[34mSELECT "slaps".* FROM "slaps" WHERE "slaps"."post_id" = ?[0m  [["post_id", 102]]
+  ↳ app/models/post.rb:30:in `collect'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/models/post.rb:10:in `user_name'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "snaps" WHERE "snaps"."post_id" = ?[0m  [["post_id", 103]]
+  ↳ app/models/post.rb:14:in `snap_number'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "slaps" WHERE "slaps"."post_id" = ?[0m  [["post_id", 103]]
+  ↳ app/models/post.rb:18:in `slap_number'
+  [1m[36mSnap Load (0.1ms)[0m  [1m[34mSELECT "snaps".* FROM "snaps" WHERE "snaps"."post_id" = ?[0m  [["post_id", 103]]
+  ↳ app/models/post.rb:22:in `collect'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 106], ["LIMIT", 1]]
+  ↳ app/models/post.rb:22:in `block in snapped_users'
+  [1m[36mSlap Load (0.1ms)[0m  [1m[34mSELECT "slaps".* FROM "slaps" WHERE "slaps"."post_id" = ?[0m  [["post_id", 103]]
+  ↳ app/models/post.rb:30:in `collect'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/models/post.rb:30:in `block in slapped_users'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/models/post.rb:10:in `user_name'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "snaps" WHERE "snaps"."post_id" = ?[0m  [["post_id", 104]]
+  ↳ app/models/post.rb:14:in `snap_number'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "slaps" WHERE "slaps"."post_id" = ?[0m  [["post_id", 104]]
+  ↳ app/models/post.rb:18:in `slap_number'
+  [1m[36mSnap Load (0.1ms)[0m  [1m[34mSELECT "snaps".* FROM "snaps" WHERE "snaps"."post_id" = ?[0m  [["post_id", 104]]
+  ↳ app/models/post.rb:22:in `collect'
+  [1m[36mSlap Load (0.1ms)[0m  [1m[34mSELECT "slaps".* FROM "slaps" WHERE "slaps"."post_id" = ?[0m  [["post_id", 104]]
+  ↳ app/models/post.rb:30:in `collect'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 101], ["LIMIT", 1]]
+  ↳ app/models/post.rb:10:in `user_name'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "snaps" WHERE "snaps"."post_id" = ?[0m  [["post_id", 105]]
+  ↳ app/models/post.rb:14:in `snap_number'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "slaps" WHERE "slaps"."post_id" = ?[0m  [["post_id", 105]]
+  ↳ app/models/post.rb:18:in `slap_number'
+  [1m[36mSnap Load (0.1ms)[0m  [1m[34mSELECT "snaps".* FROM "snaps" WHERE "snaps"."post_id" = ?[0m  [["post_id", 105]]
+  ↳ app/models/post.rb:22:in `collect'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 101], ["LIMIT", 1]]
+  ↳ app/models/post.rb:22:in `block in snapped_users'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 100], ["LIMIT", 1]]
+  ↳ app/models/post.rb:22:in `block in snapped_users'
+  [1m[36mSlap Load (0.1ms)[0m  [1m[34mSELECT "slaps".* FROM "slaps" WHERE "slaps"."post_id" = ?[0m  [["post_id", 105]]
+  ↳ app/models/post.rb:30:in `collect'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 109], ["LIMIT", 1]]
+  ↳ app/models/post.rb:10:in `user_name'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "snaps" WHERE "snaps"."post_id" = ?[0m  [["post_id", 106]]
+  ↳ app/models/post.rb:14:in `snap_number'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "slaps" WHERE "slaps"."post_id" = ?[0m  [["post_id", 106]]
+  ↳ app/models/post.rb:18:in `slap_number'
+  [1m[36mSnap Load (0.2ms)[0m  [1m[34mSELECT "snaps".* FROM "snaps" WHERE "snaps"."post_id" = ?[0m  [["post_id", 106]]
+  ↳ app/models/post.rb:22:in `collect'
+  [1m[36mSlap Load (0.1ms)[0m  [1m[34mSELECT "slaps".* FROM "slaps" WHERE "slaps"."post_id" = ?[0m  [["post_id", 106]]
+  ↳ app/models/post.rb:30:in `collect'
+  Rendered posts/index.html.erb within layouts/application (Duration: 162.8ms | Allocations: 62174)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 103)
+Completed 200 OK in 176ms (Views: 157.5ms | ActiveRecord: 13.9ms | Allocations: 67803)
+
+
+Started GET "/Users/ben/flatiron/work/mod2webdev/Mod2-Project/the-galley/public/logo.png" for ::1 at 2020-10-02 09:05:24 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/Users/ben/flatiron/work/mod2webdev/Mod2-Project/the-galley/public/logo.png"):
+  
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users/108" for ::1 at 2020-10-02 09:05:29 -0500
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"108"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 108], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `authenticated?'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 108], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 108]]
+  ↳ app/views/users/show.html.erb:14
+  Rendered users/show.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1362)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 117)
+Completed 200 OK in 22ms (Views: 18.1ms | ActiveRecord: 0.5ms | Allocations: 7091)
+
+
+Started GET "/Users/ben/flatiron/work/mod2webdev/Mod2-Project/the-galley/public/logo.png" for ::1 at 2020-10-02 09:05:29 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/Users/ben/flatiron/work/mod2webdev/Mod2-Project/the-galley/public/logo.png"):
+  
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.4) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.4) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.4) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/108/activity" for ::1 at 2020-10-02 09:05:31 -0500
+Processing by UsersController#activity as HTML
+  Parameters: {"id"=>"108"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 108], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `authenticated?'
+  Rendering users/activity.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "backs" ON "users"."id" = "backs"."backer_id" WHERE "backs"."backee_id" = ?[0m  [["backee_id", 108]]
+  ↳ app/views/users/activity.html.erb:5
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "backs" ON "users"."id" = "backs"."backee_id" WHERE "backs"."backer_id" = ?[0m  [["backer_id", 108]]
+  ↳ app/views/users/activity.html.erb:9
+  [1m[36mSnap Load (0.2ms)[0m  [1m[34mSELECT "snaps".* FROM "snaps" WHERE "snaps"."user_id" = ?[0m  [["user_id", 108]]
+  ↳ app/views/users/activity.html.erb:15
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 98], ["LIMIT", 1]]
+  ↳ app/models/snap.rb:6:in `post_user_name'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 107], ["LIMIT", 1]]
+  ↳ app/models/snap.rb:6:in `post_user_name'
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 96], ["LIMIT", 1]]
+  ↳ app/models/snap.rb:6:in `post_user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 107], ["LIMIT", 1]]
+  ↳ app/models/snap.rb:6:in `post_user_name'
+  [1m[36mSlap Load (0.4ms)[0m  [1m[34mSELECT "slaps".* FROM "slaps" WHERE "slaps"."user_id" = ?[0m  [["user_id", 108]]
+  ↳ app/views/users/activity.html.erb:21
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 100], ["LIMIT", 1]]
+  ↳ app/models/slap.rb:6:in `post_user_name'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 103], ["LIMIT", 1]]
+  ↳ app/models/slap.rb:6:in `post_user_name'
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 101], ["LIMIT", 1]]
+  ↳ app/models/slap.rb:6:in `post_user_name'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 105], ["LIMIT", 1]]
+  ↳ app/models/slap.rb:6:in `post_user_name'
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = ?[0m  [["user_id", 108]]
+  ↳ app/views/users/activity.html.erb:26
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 96], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:10:in `post_user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 107], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:10:in `post_user_name'
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 96], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:10:in `post_user_name'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 107], ["LIMIT", 1]]
+  ↳ app/models/comment.rb:10:in `post_user_name'
+  Rendered users/activity.html.erb within layouts/application (Duration: 55.1ms | Allocations: 19631)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 104)
+Completed 200 OK in 104ms (Views: 86.8ms | ActiveRecord: 5.4ms | Allocations: 26573)
+
+
+Started DELETE "/sessions" for ::1 at 2020-10-02 09:05:38 -0500
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"VINO+G2hARiuMU1LjrrsMuybhrXPzNJJZbPF02eJblYavWQwwtOiLJ4Bu8Gj1j0+YmgB9K/2DymzeAgFCMQLCA=="}
+Redirected to http://localhost:3000/sign_in
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 304)
+
+
+Started GET "/sign_in" for ::1 at 2020-10-02 09:05:38 -0500
+Processing by SessionsController#sign_in as HTML
+  Rendering sessions/sign_in.html.erb within layouts/application
+  Rendered sessions/sign_in.html.erb within layouts/application (Duration: 4.0ms | Allocations: 678)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.0ms | Allocations: 4938)
+
+
