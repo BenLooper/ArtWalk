@@ -21,7 +21,7 @@
           <a class="dropdown-item" href=<%=activity_path(@user)%>>Activity</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="">
-            <%= link_to "Logout", "/sessions", controller:'sessions', action:'destroy', method:'delete'%>
+            <%= button_to "Logout", "/sessions", controller:'sessions', action:'destroy', method:'delete',class: "btn   btn-danger"%>
           </a>
         </div>
       </li>

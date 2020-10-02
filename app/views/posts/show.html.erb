@@ -35,7 +35,7 @@
 <%=form_with url:comments_path {controller:comments} do |f|%>
 <%=f.text_field :content, placeholder:"Add a comment"%>
 <%=f.hidden_field :post_id, value:"#{@post.id}"%>
-<%=f.submit value:"Post Comment",class: "btn btn-default  "%>
+<%=f.submit value:"Post Comment",class: "btn   btn-success"%>
 <%end%>
 
 </div>
