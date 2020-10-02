@@ -1,16 +1,20 @@
-<%= form_with model: @user,:url => url_for(:controller => 'sessions', :action => 'create') do | f |%>
+<body class="body">
+    <div class="content">
+        <%= form_with model: @user,:url => url_for(:controller => 'sessions', :action => 'create') do | f |%>
 
-<%= f.label :username %>
-<%= f.text_field :username %>
-<br/>
-<%= f.label :password %>
-<%= f.password_field :password %>
-<br/>
-<%= f.submit "sign in" %>
-<%end%>
-<br>
-<%= link_to "Don't have an account? Create one here", new_user_path%>
+        <%= f.label :username %>
+        <%= f.text_field :username %>
+        <br/>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+        <br/>
+        <%= f.submit "sign in" %>
+        <%end%>
+        <br>
+        <%= link_to "Don't have an account? Create one here", new_user_path%>
 
-<%flash.each do |key,v|%>
-<li style="color:red"> <%= v%> </li>
-<%end%>
+        <%flash.each do |key,v|%>
+        <li style="color:red"> <%= v%> </li>
+        <%end%>
+    </div>
+</body>

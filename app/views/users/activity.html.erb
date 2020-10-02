@@ -1,32 +1,38 @@
-<h1><%=@user.username%></h1>
+<body class="body">
 
-<h2>Backs</h2>
+    <div class="content">
+        <h1><%=@user.username%></h1>
 
-<%@user.backers.each do |backer|%>  
-    <li><%=backer.username + " "%>backed you</li>
-<%end%>
+        <h2>Backs</h2>
 
-<%@user.backees.each do |backee|%>
-    <li>You backed<%=" "%><%=backee.username%></li>
-<%end%>
+        <%@user.backers.each do |backer|%>  
+            <li><%=backer.username + " "%>backed you</li>
+        <%end%>
 
-<h2>Snaps</h2>
+        <%@user.backees.each do |backee|%>
+            <li>You backed<%=" "%><%=backee.username%></li>
+        <%end%>
 
-<%@snaps.each do |snap|%>
-    <li><%=link_to (snap.post_user_name + "'s post"), post_path(snap.post)%></li>
-<%end%>
+        <h2>Snaps</h2>
 
-<h2>Slaps</h2>
+        <%@snaps.each do |snap|%>
+            <li><%=link_to (snap.post_user_name + "'s post"), post_path(snap.post)%></li>
+        <%end%>
 
-<%@slaps.each do |slap|%>
-    <li><%=link_to (slap.post_user_name + "'s post"), post_path(slap.post)%></li>
-<%end%>
+        <h2>Slaps</h2>
 
-<h2>Comments</h2>
-<%@comments.each do |comment|%>
-    <li><%=link_to (comment.post_user_name + "'s post"), post_path(comment.post)%></li>
-    <ul>
-        <li><%=comment.content%></li>
-    </ul>
-    <br>
-<%end%>
+        <%@slaps.each do |slap|%>
+            <li><%=link_to (slap.post_user_name + "'s post"), post_path(slap.post)%></li>
+        <%end%>
+
+        <h2>Comments</h2>
+        <%@comments.each do |comment|%>
+            <li><%=link_to (comment.post_user_name + "'s post"), post_path(comment.post)%></li>
+            <ul>
+                <li><%=comment.content%></li>
+            </ul>
+            <br>
+        <%end%>
+        
+    </div>
+</body>

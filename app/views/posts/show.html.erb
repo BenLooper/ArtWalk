@@ -1,3 +1,7 @@
+<body class="body">
+
+<div class="content">
+
 <label><strong><%=link_to @post.user_name.capitalize, user_path(@post.user)%></strong></label>
 
 <p><img src='<%=@post.image_url%>' alt="Random Image"></p>
@@ -31,6 +35,9 @@
 <%=form_with url:comments_path {controller:comments} do |f|%>
 <%=f.text_field :content, placeholder:"Add a comment"%>
 <%=f.hidden_field :post_id, value:"#{@post.id}"%>
-<%=f.submit value:"Post Comment"%>
+<%=f.submit value:"Post Comment",class: "btn btn-default btn-primary"%>
 <%end%>
 
+</div>
+
+</body>

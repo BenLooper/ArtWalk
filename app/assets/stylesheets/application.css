@@ -14,4 +14,16 @@
  *= require_self
  */
 
- background-image: url('/assets/black-carbon.jpg')
+ /* background-image: url('/assets/black-carbon.jpg') */
+
+ .body {
+    background-color: black;
+  }
+  
+  .content {
+    max-width: 800px ;
+    margin: auto;
+    background: #51515e;
+    padding: 10px;
+  }
+
