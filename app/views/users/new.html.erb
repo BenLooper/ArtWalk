@@ -3,21 +3,21 @@
 <%= form_with model:@user do |f| %> 
 
   <div class="form-group">
-    <%= f.label :username, class: "col-md-4 control-label" %>
+    <%= f.label :username  %>
     <%= f.text_field :username, class: "form-control"%> 
   </div>
 
     <br>
 
   <div class="form-group">
-    <%= f.label :password , class: "col-md-2 control-label" %>
+    <%= f.label :password  %>
     <%= f.password_field :password, class: "form-control" %>
   </div>
 
     <br>
 
   <div class="form-group">
-    <%= f.label :password_confirmation , class: "col-md-4 control-label"  %>
+    <%= f.label :password_confirmation  %>
     <%= f.password_field :password_confirmation, class: "form-control" %>
     <%= f.submit "Create new user", class: "btn btn-default btn-primary" %>
   </div>
